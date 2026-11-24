@@ -1,0 +1,110 @@
+const now = Date.now();
+const diff = targetDate - now;
+
+if (diff <= 0) {
+timerEl.textContent = "00D : 00H : 00M : 00S // SEED_LIVE";
+return;
+}
+
+const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+const minutes = Math.floor((diff / (1000 * 60)) % 60);
+const seconds = Math.floor((diff / 1000) % 60);
+
+const dStr = String(days).padStart(2, "0");
+const hStr = String(hours).padStart(2, "0");
+const mStr = String(minutes).padStart(2, "0");
+const sStr = String(seconds).padStart(2, "0");
+
+timerEl.textContent = `${dStr}D : ${hStr}H : ${mStr}M : ${sStr}S`;
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+})();
+
+const magnetBtn = document.getElementById("grab-magnet-btn");
+const magnetInput = document.getElementById("magnet-input");
+const magnetFeedback = document.getElementById("magnet-feedback");
+
+function handleMagnet() {
+const val = magnetInput.value.trim();
+if (!val) {
+magnetFeedback.style.color = "#ff2a2a";
+magnetFeedback.textContent = "> ERROR: ENTER VALID SMS # OR HANDLE TO BIND MAGNET URI.";
+return;
+}
+const hash = btoa(val).replace(/=/g, "").toUpperCase().slice(0, 12);
+magnetFeedback.style.color = "#00e5ff";
+magnetFeedback.textContent = `> PEER REGISTERED [${val}] // MAGNET: magnet:?xt=urn:btih:0726PHX${hash}&dn=AKI_2027_CAPSULE`;
+magnetInput.value = "";
+}
+
+magnetBtn.addEventListener("click", handleMagnet);
+magnetInput.addEventListener("keydown", (e) => {
+if (e.key === "Enter") handleMagnet();
+});
+
+const cliInput = document.getElementById("cli-input");
+const cliBtn = document.getElementById("cli-exec-btn");
+const cliOutput = document.getElementById("cli-output");
+const vaultUnlocked = document.getElementById("vault-unlocked");
+
+function unlockVaultPackages() {
+["st-01", "st-02", "st-03", "st-04"].forEach((id) => {
+const el = document.getElementById(id);
+el.textContent = "[DECRYPTED]";
+el.className = "tag-dec";
+});
+const st05 = document.getElementById("st-05");
+st05.textContent = "[COORDS_LOCKED_T-24H]";
+st05.className = "tag-dec";
+vaultUnlocked.style.display = "block";
+}
+
+function runCommand() {
+const raw = cliInput.value.trim();
+const cmd = raw.toLowerCase();
+cliInput.value = "";
+
+if (!cmd) return;
+
+if (cmd === "0726") {
+cliOutput.innerHTML = `<span class="cli-success">&gt; KEY 0726 VERIFIED. RSA HANDSHAKE COMPLETE.
+&gt; DECRYPTING 5 PACKAGES IN /ROOT/VAULT_02_13_2027/...</span>`;
+unlockVaultPackages();
+return;
+}
+
+const responses = {
+ls: `> /ROOT/VAULT_02_13_2027/
+01_PHX_BOMBER_MA1.pkg
+02_RUINED_BLEACH_DISTORTION_01_15.pkg
+03_MECHANIC_SHIRT_X_SAFETYGOLD.pkg
+04_NOGI_RASHGUARD_FIGHTERS_UNIT.pkg
+05_DROP_COORDINATES_02_13_2027.txt
+AKI_2008.NFO | 9_HUB_NODES.LOG | PGP_KEY.ASC`,
+whoami: `> USER: DAY_ONE_NODE // CLEARANCE: UNVERIFIED_PEER
+> ORIGIN: PHX_VALLEY_GRID // STATUS: CONNECTED TO 9 HUBS`,
+street: `> [STREET_LOG]: Midnight I-10 / Loop 101 import runs, lowered chassis sparks, Dutch Bros lot meets @ 01:30 AM. Stay low, stay loud.`,
+strip: `> [STRIP_LOG]: Speedworld / Firebird staging lanes. Reaction time .008. No prep, all boost, built in home garages.`,
+cage: `> [CAGE_LOG]: 2007-2008 Valley fight gyms. No-gi rounds till the mats flooded. Vale tudo roots, zero tap, AKI Is One.`,
+help: `> AVAILABLE INPUTS: 0726 | ls | whoami | street | strip | cage | clear`,
+clear: `> SYSTEM IDLE. AWAITING KEY OR CLI ARGUMENT...`
+};
+
+if (responses[cmd]) {
+cliOutput.textContent = responses[cmd];
+} else {
+cliOutput.innerHTML = `<span class="cli-warn">&gt; UNKNOWN ARGUMENT '${raw}'. TYPE '0726' TO DECRYPT VAULT OR RUN: ls, whoami, street, strip, cage</span>`;
+}
+}
+
+cliBtn.addEventListener("click", runCommand);
+cliInput.addEventListener("keydown", (e) => {
+if (e.key === "Enter") runCommand();
+});
+</script>
+
+</body>
+</html>
