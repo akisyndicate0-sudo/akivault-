@@ -1,3 +1,57 @@
+Hand-distressed acid/bleach archive print // 1-of-15 numbered run.</div>
+<div class="vault-item"><strong>03_MECHANIC_SHIRT_X_SAFETYGOLD:</strong> Garage-issue work button-up // High-vis Safety Gold crest &amp; back hit.</div>
+<div class="vault-item"><strong>04_NOGI_RASHGUARD_FIGHTERS_UNIT:</strong> Ranked compression rashguard // Sublimated mat-tested weave.</div>
+<div class="vault-item"><strong>05_DROP_COORDINATES_02_13_2027:</strong> PHX Metro secret rendezvous // Broadcast via SMS Magnet Key at T-Minus 24H.</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="nfo-tabs">
+<span class="nfo-badge">[ + AKI_2008.NFO ]</span>
+<span class="nfo-badge">[ + 9_HUB_NODES.LOG ]</span>
+<span class="nfo-badge">[ + PGP_KEY.ASC ]</span>
+</div>
+<div class="nfo-block"><strong>AKI_SYNDICATE_2007_2027.NFO:</strong> Forged in Phoenix, AZ (2007–2008). Built for the real ones who lived the fight gyms, midnight import cruises, and Dutch Bros parking lots. By Love • AKI Is One.
+
+<strong>9 HUBS:</strong> PHX (HQ) • NATIONAL DOJO • SEATTLE/BREMERTON • KANSAS BASE • TEXAS OILFIELDS • TENNESSEE AUTO • DC/BALTIMORE • NEW JERSEY • OAHU, HAWAII
+<div class="pgp-block">-----BEGIN PGP PUBLIC KEY-----
+KEY_ID: 0x0726PHX2027 // LAUNCH: 02.13.2027 @ 19:00 MST
+FINGERPRINT: 4A4B 4932 3030 3850 4858 2027 0726 4F4E 45
+-----END PGP PUBLIC KEY-----</div></div>
+</div>
+
+<div class="footer">
+<span>PROTOCOL: P2P_CRYPT_V2.7 // NO LOGS // NO MASTERS</span>
+<span>BY LOVE • AKI IS ONE</span>
+</div>
+</div>
+
+<script>
+(function initCounter() {
+const counterEl = document.getElementById("hit-counter");
+const leechEl = document.getElementById("leech-counter");
+let baseHits = parseInt(localStorage.getItem("aki_vault_hits") || "4726", 10);
+baseHits += 1;
+localStorage.setItem("aki_vault_hits", baseHits.toString());
+counterEl.textContent = baseHits.toString().padStart(6, "0").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+setInterval(() => {
+if (Math.random() > 0.55) {
+baseHits += 1;
+localStorage.setItem("aki_vault_hits", baseHits.toString());
+counterEl.textContent = baseHits.toString().padStart(6, "0").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+const leechers = 38 + Math.floor(Math.random() * 9);
+leechEl.textContent = leechers;
+}, 4500);
+})();
+
+(function initCountdown() {
+const targetDate = new Date("2027-02-13T19:00:00-07:00").getTime();
+const timerEl = document.getElementById("countdown");
+
+function updateTimer() {
 const now = Date.now();
 const diff = targetDate - now;
 
