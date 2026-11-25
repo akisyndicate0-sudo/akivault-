@@ -1,0 +1,42 @@
+```javascript
+const lt = new Date("2027-02-13T19:00:00-07:00").getTime();
+setInterval(() => {
+  const d = lt - Date.now();
+  if (d <= 0) return;
+  document.getElementById("cd").innerText = `${String(Math.floor(d / 864e5)).padStart(2, "0")}D : ${String(Math.floor((d / 36e5) % 24)).padStart(2, "0")}H : ${String(Math.floor((d / 6e4) % 60)).padStart(2, "0")}M : ${String(Math.floor((d / 1e3) % 60)).padStart(2, "0")}S`;
+}, 1000);
+
+let l = 842;
+setInterval(() => {
+  l += Math.floor(Math.random() * 4) - 1;
+  document.getElementById("lc").innerText = String(l).padStart(6, "0").replace(/(\d{3})(\d{3})/, "$1,$2");
+}, 3000);
+
+function gm() {
+  const v = document.getElementById("si").value.trim(), o = document.getElementById("co");
+  if (!v) { o.style.color = "#d90429"; o.innerText = "> ENTER MOBILE # OR @HANDLE FIRST."; return; }
+  o.style.color = "#39ff14"; o.innerText = `> PEER [${v}] QUEUED FOR FEB 13.`; document.getElementById("si").value = "";
+}
+
+function rc() {
+  const r = document.getElementById("ci").value.trim().toLowerCase(), o = document.getElementById("co");
+  o.style.color = "#00f0ff";
+  if (r === "0726") {
+    o.style.color = "#39ff14"; o.innerText = "> KEY VERIFIED. VAULT DECRYPTED.";
+    document.getElementById("vt").style.display = "block";
+    document.getElementById("sb").style.width = "100%";
+    document.getElementById("sp").style.color = "#39ff14";
+    document.getElementById("sp").innerText = "100% [SEEDED]";
+  } else if (r === "street") o.innerText = "> STREET : Run it on the streets or we can run these hands";
+  else if (r === "strip") o.innerText = "> STRIP : Sanctioned drag quarter-mile slips";
+  else if (r === "cage") o.innerText = "> CAGE : Sanctioned fight/bout";
+  else if (r === "whoami") o.innerText = "> uid=726(aki_day_one) groups=street,strip,cage";
+  else if (r === "ls" || r === "help") o.innerText = "> COMMANDS: 0726 | street | strip | cage | whoami | ls";
+  else { o.style.color = "#d90429"; o.innerText = `> command not found: ${r || "null"}`; }
+  document.getElementById("ci").value = "";
+}
+
+function tc(id) {
+  const e = document.getElementById("c-" + id);
+  e.style.display = e.style.display === "block" ? "none" : "block";
+}
