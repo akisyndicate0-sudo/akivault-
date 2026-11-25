@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKI SYNDICATE // INTERCEPT [07—26]</title>
+<style>
+  :root{--bg:#030503;--panel:#080c08;--g:#39ff14;--c:#00f0ff;--r:#d90429;--y:#ffb703;--b:#1e3b1e;--m:#6b8e6b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--g);font-family:"Courier New",monospace;min-height:100vh;padding:8px}
+  .shell{max-width:780px;margin:0 auto;border:2px solid var(--g);background:var(--panel);box-shadow:0 0 25px rgba(57,255,20,.15)}
+  .top{display:flex;justify-content:space-between;padding:6px 12px;background:#0d160d;border-bottom:1px solid var(--g);font-size:11px;font-weight:bold}
+  .warn{background:var(--r);color:#fff;text-align:center;padding:8px;font-size:11px;font-weight:bold;letter-spacing:1.2px}
+  .tick-w{overflow:hidden;background:#040704;border-bottom:1px dashed var(--b);padding:6px 0;font-size:11px;color:var(--c)}
+  .tick{display:inline-block;white-space:nowrap;animation:sc 24s linear infinite}
+  .tick span{margin-right:36px}
+  @keyframes sc{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}
+  .boot{background:#040704;border-bottom:1px solid var(--b);padding:10px 12px;font-size:11px;line-height:1.45}
+  .ban{padding:14px 6px;text-align:center;border-bottom:1px solid var(--b);background:#050805;overflow-x:auto}
+  .asc{font-size:clamp(4.6px,1.15vw,8.6px);line-height:1.02;font-weight:900;color:#fff;text-shadow:-2px 0 var(--r),2px 0 var(--c),0 0 8px rgba(57,255,20,.5);white-space:pre;display:inline-block;text-align:left}
+  .sub{margin-top:8px;font-size:11px;letter-spacing:2px;color:var(--y);font-weight:bold}
+  .box{margin:12px;border:1px solid var(--b);background:#050905;padding:10px;font-size:11.5px}
+  .row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dotted #152615;gap:8px}
+  .row:last-child{border:none}
+  .lbl{display:flex;justify-content:space-between;font-size:11px;margin:0 12px 5px;font-weight:bold}
+  .bar-o{margin:0 12px 12px;height:18px;border:2px solid #39ff14;background:#020602;padding:2px;position:relative}
+  .bar-i{display:block;height:100%;width:98.8%;background-color:#39ff14;box-shadow:0 0 12px #39ff14;animation:climb 6s ease-out forwards}
+  @keyframes climb{0%{width:14%}65%{width:84%}85%{width:95%}100%{width:98.8%}}
+  .phx{margin:12px;border:1px solid var(--r);background:linear-gradient(180deg,#0c0406,#060906);padding:14px 6px;text-align:center;overflow-x:auto}
+  .phx pre{font-size:clamp(4.6px,1.15vw,8px);line-height:1;color:var(--r);text-shadow:0 0 8px rgba(217,4,41,.7);white-space:pre;display:inline-block;text-align:left;font-weight:bold}
+  .cd{margin:12px;padding:12px;border-top:1px dashed var(--b);border-bottom:1px dashed var(--b);text-align:center}
+  .dig{font-size:clamp(22px,5vw,32px);font-weight:900;color:var(--r);text-shadow:0 0 10px rgba(217,4,41,.6);letter-spacing:2px;margin-top:6px}
+  .act{padding:0 12px 14px}
+  .il{font-size:11px;margin:10px 0 5px}
+  .cr{display:flex;gap:8px;flex-wrap:wrap}
+  .cr input{flex:1;min-width:170px;background:#020402;border:1px solid var(--g);color:#fff;padding:9px;font-family:inherit;font-size:12px}
+  .cr button{background:var(--g);color:#000;border:none;padding:9px 14px;font-family:inherit;font-weight:900;font-size:12px;cursor:pointer}
+  .cr button.rb{background:var(--r);color:#fff}
+  .out{margin-top:8px;font-size:11.5px;color:var(--c);min-height:18px}
+  .crumbs{margin-top:12px;border-top:1px solid var(--b);padding-top:10px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+  .cb{background:#0b120b;border:1px solid var(--b);color:var(--m);font-family:inherit;font-size:10.5px;padding:5px 8px;cursor:pointer}
+  .dr{display:none;margin-top:8px;background:#040704;border:1px dashed var(--g);padding:9px;font-size:11px;color:#d4e8d4;line-height:1.45}
+  #vt{display:none;margin-top:12px;border:1px solid var(--y);background:#080a04;padding:8px}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th,td{border:1px solid var(--b);padding:5px 7px;text-align:left}
+  th{color:var(--y)}
+  .doc{margin:12px;border:1px solid var(--g);background:#050905;padding:12px;font-size:12px;line-height:1.65;color:#e6f5e6}
+  .doc b{color:var(--y)}
+  .unit{margin-top:8px;text-align:center;font-weight:bold;letter-spacing:2px;color:var(--r)}
+  .ft{background:#040604;border-top:1px solid var(--b);padding:8px;font-size:10px;color:var(--m);text-align:center}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top"><span>[UNVERIFIED_NODE // INTERCEPT_ACTIVE]</span><span>STATUS: <b style="color:#fff">TRUE</b></span></div>
+  <div class="warn">&#9888; WARNING: UNINDEXED P2P ARCHIVE — ONLY 1 ORIGINAL SEEDER REMAINING &#9888;</div>
+  <div class="tick-w"><div class="tick">
+    <span>[+] INTERCEPT ESTABLISHED: MOUNTING /mnt/aki-syndicate-12-26...</span>
+    <span>[SWARM] PHX • DMV • NYC/NJ • HNL • TX • TN • SEA • KS</span>
+    <span>[LAUNCH_LOCK] FEB 13, 2027 // 19:00 MST // STREET • STRIP • CAGE</span>
+  </div></div>
+  <div class="boot">
+    <div style="color:var(--m)">$ pkg update &amp;&amp; pkg install</div>
+    <div>[*] Initializing AKI Syndicate Flood v2.7 // Socket Swarm: regions city points states district re: Threads...</div>
+    <div style="color:var(--c)">[+] Loading user-agents.txt &amp; 9-operational proxy nodes (PHX/DMV/NJ/HNL/TX/TN/SEA/KS)...</div>
+    <div style="color:var(--r);font-weight:bold">[!] FLOODING AKI SYNDICATE -&gt; ::: SENT [OK]</div>
+    <div>[+] INTERCEPT ESTABLISHED: MOUNTING /mnt/aki-syndicate-12-26...</div>
+  </div>
+  <div class="ban">
+    <pre class="asc">                  .:.                     .::::::::.               .::--:::.     :::
+              .:-+*#*=-:            .:-=+*#**+++======-:       .-=*#%%%%%%#*+=-:-*-===
+         .:-=+*#%@@@@@%#+==-::    :=+#%@@@*+++****++=====-    -=*#%#%%%@@@@@@@@%##*#%==
+      .==*#%@@#=*#@@@@@@@@#+=+.  -=#@@@@@--*#%%@@@@@%*=*==+:  *=++:..:-==+#%%@@@@@@%+=.
+      +=@@@@@@*=-=-@@@@@@@-=.    +=@@@@@@:+*=::=+@@@@@%=#==+  ====--:---=:.-+==+*=-=+:
+      ++@@@@@@*+ =-@@@@@@%-=     +=@@@@@@%#-+-=+=%@#***=*+=+   .--=====--..=+%@@#-+====
+      ++@@@@@@*+.+-@@@@@@%-=      ==#@@@@@@*-++%@@@%#=+:          ::::    +-@@@@@+=+=-=
+      ++@@@@@@*+ +-@@@@@@%-=      .=+=*@@@@@#=#-@@@@@@-=      .-=*##**+-: -=#@@@@@#==
+      ++@@@@@@*=-==@@@@@@@-+--- :=+*#*-:*%@@@=#=#@@@@@==.:-- :+++*#@@@@%+= :=+@@@@@@=+
+      +=@@@@@@@*+==#@@@@@@%+=== +-@@@@@-*=*@@=*++@@@@@@*+==+ ==+=+=*@@@@@+=  -=#@@@@++
+      .=+#%@@#+=-.:=+#@@#+=-.    =+#%@#=+=+#+=.-=*%@@%*+=:.   ===:.=+#%@@@+=-:+=@@%*=:
+         :-==:      .:==-.        .:--==---:.    :-==-:             .:-=++*+===++=-:</pre>
+    <div class="sub">BY LOVE • AKI IS ONE // EST. 2007—2008</div>
+  </div>
+  <div class="box">
+    <div class="row"><span style="color:var(--m)">TORRENT:</span><b>AKI_SYNDICATE_VAULT_2008_REISSUE.torrent</b></div>
+    <div class="row"><span style="color:var(--m)">INFO HASH:</span><b style="color:var(--c)">06142008F8A9C2E1B770PHX07</b></div>
+    <div class="row"><span style="color:var(--m)">SEEDERS:</span><b style="color:var(--g)">1 (HOST: PHX_CHAPTER_OG)</b></div>
+    <div class="row"><span style="color:var(--m)">LEECHERS:</span><b style="color:var(--r)" id="lc">000,842</b></div>
+    <div class="row"><span style="color:var(--m)">INTERCEPT HITS:</span><b style="color:var(--g)" id="hc">001,337</b></div>
+  </div>
+  <div class="lbl"><span>P2P STREAM: AKI_CAPSULE_01.RAR</span><span id="sp" style="color:var(--y)">98.8% [STALLED // AWAITING PEER KEY]</span></div>
+  <div class="bar-o"><div class="bar-i" id="sb"></div></div>
+  <div class="phx">
+    <div style="font-size:11px;letter-spacing:2px;color:var(--r);font-weight:bold;margin-bottom:6px">// [ PHX CHAPTER • 07—26 ] //</div>
+    <pre>                 ::    :+ = +*-
+                +%#*--  -##**-=+-   .     +=--:=-
+             :+=:#%%%%%**#*=-.=%#-  :*%#+.-=..-*#**-:           -
+             :+::%%%%%%%#=-   +#%+   #%%%-=#: -%#:-*%+-.       ++
+       -:     . *@%%%%#-.:  =+ =%%=-=#*.      --=**:.-=#+.   -=*+
+        =*   =%**@@%%-.   :+*-:%%%%%%%%+:    =+=*=+%= .*%%*: .%%%#*.
+     .=- =*  == =@%@=   :-+#=-+%@@+.=#%%%#+:    .  :#%= =@%%++@@@@@+
+     :##=.=*+*  #@@%    :**%@@@@@@%%%%%%%%%%#+:      %@#*%%%@@##%%%+
+    -+--+#*#%+ :@%@* :- +@@@@@@@@%@@%%%%%%%%%%%%#*=--#%%%#*@@@*-*=.+-:
+    +*==+###%%*#%%%*:*-*%+*+..:=#@%%%@@@%@%%%%%%%+:-:*%%@#:%@@%#-*  .+
+      .-  -%%%-+%%%%@* +  ::   .++%%%%@@@%%%%%%%*-:+*:-@%@+#@@@@+. :*=-:
+        . +%%%*:*%%%%*.=-#.     -:#@%%%%%%%%%%%@:    :-@%@%%@@@@@::*=+=.
+ .-#=  -+ +%%%%%+-%%%%-.**:      -@%%%%%%%%@%%%%+--#***@%%@%%@@@@##*+-.
+ :-+#. #+ =%%%%%#:.*%%%=.       :#@%%%%%%%%@@@@@%: -:#%@@%%%%%%%%@%%*:
+    =*=%+  #%%%%%%**#%%%#*=-: -#%@%@@%%%%%@@@@@%##. .@@%%%%%%%%%%%%%%#.
+ -.:==###+ -%%%%%%%@%%%%#--==+#@%%@@@%@@@@@@@@@+++ :#@%%%%%%%%%%%%%%#+
+ :=--=*#%@++*%%%%@@@%%%%%%%%%%@%%%%@@@@@@@@@@@@*@%+@@%%%%@@%%%%%%%*=*-
+  :.+=:#@@@#-#%@@@@@@@%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@%%%@@@@@@@@@@# *#%:
+    .  =%@%%%##@@@@@@@@%***#%%%%%#%@**@@@@@%#%@##%%%%%%%%@@@@@@%%= -=-.:=
+       =%@@%%%@@@%%@@@@+ .: -%%%* =#  =%@@@* .-  -%%%%%%%%@%@@%%* :.  #+
+       *#%@@%@%%@%*%@@@- =#  %%%+  :   #@%%@*  .+#%%%%%%%%%%%%%%=...
+        :*%@@@@@%@@@@@@: .. +@%@+      #@%%@+   %%%%%%%%%%%%%%%: -%#
+       **##%@@@@@@@@@@%   #%@@@@+  .   #@%%+ -+ .#%%%%%%%%%%%%--: :
+      :%%#%#*@@@@@@@%%%+++%@@@@@#+-:*-:#@%%+=%@*:+%%%%%%%%%%#- -:
+      .:=*=*.:#@@@@%%%%@@@%#%%##@##*#%*%##%*%%%%%%%%%%%%%%%+
+         ::.**=:*@@%%%%%%%%+##=+%=#=*%=%=**=*@@%%%%%%%%%%*-
+          . =#%+:=@%%%%%%%%%%%%%%%%%%%%%@@@@%##%%%%%%%%*:
+             +-:.:%@%%@%%%%%@@@@@@%%%%%%#*++*#%%%%%%#=.
+                 -%%%#*+=====+++++#%*+%#+*#%%%%%#+-.
+             .-:=+-.    ::+: :=--+####*%*#+-=-:.
+                +:             :#+:.:: *-</pre>
+  </div>
+  <div class="box">
+    <div style="color:var(--y);font-weight:bold;margin-bottom:6px">ARCHIVE MANIFEST [5 PACKAGES DETECTED]:</div>
